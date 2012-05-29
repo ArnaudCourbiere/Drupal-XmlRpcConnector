@@ -78,7 +78,7 @@ class XmlRpcConnector {
     
     $this->_setUpHash('user.login');
     
-    $m = $this->_getXmlrpcMsg('user.login', array(
+    $m = $this->_getXmlRpcMsg('user.login', array(
       $this->_hash,
       $this->_app_domain,
       $this->_timestamp,
@@ -112,7 +112,7 @@ class XmlRpcConnector {
   public function logout() {
     $this->_setUpHash('user.logout');
     
-    $m = $this->_getXmlrpcMsg('user.logout', array(
+    $m = $this->_getXmlRpcMsg('user.logout', array(
       $this->_hash,
       $this->_app_domain,
       $this->_timestamp,
@@ -137,7 +137,7 @@ class XmlRpcConnector {
   public function user_delete($user_id = null) {
     $this->_setUpHash('user.delete');
     
-    $m = $this->_getXmlrpcMsg('user.delete', array(
+    $m = $this->_getXmlRpcMsg('user.delete', array(
       $this->_hash,
       $this->_app_domain,
       $this->_timestamp,
@@ -165,7 +165,7 @@ class XmlRpcConnector {
   public function user_create($name, $pass, $mail) {
     $this->_setUpHash('user.save');
     
-    $m = $this->_getXmlrpcMsg('user.save', array(
+    $m = $this->_getXmlRpcMsg('user.save', array(
       $this->_hash,
       $this->_app_domain,
       $this->_timestamp,
@@ -196,7 +196,7 @@ class XmlRpcConnector {
   public function user_update($user_id, $name, $pass, $mail) {
     $this->_setUpHash('user.save');
     
-    $m = $this->_getXmlrpcMsg('user.save', array(
+    $m = $this->_getXmlRpcMsg('user.save', array(
       $this->_hash,
       $this->_app_domain,
       $this->_timestamp,
@@ -222,7 +222,7 @@ class XmlRpcConnector {
   public function user_get($user_id) {
     $this->_setUpHash('user.get');
     
-    $m = $this->_getXmlrpcMsg('user.get', array(
+    $m = $this->_getXmlRpcMsg('user.get', array(
       $this->_hash,
       $this->_app_domain,
       $this->_timestamp,
@@ -247,7 +247,7 @@ class XmlRpcConnector {
    * @throws Exception If an error occurs during connection.
    */
   private function _connect() {
-    $m = $this->_getXmlrpcMsg('system.connect');
+    $m = $this->_getXmlRpcMsg('system.connect');
     
     $this->_xmlrpc_client = new xmlrpc_client(
       $this->_server,
@@ -273,7 +273,7 @@ class XmlRpcConnector {
    * @param mixed $args The method arguments.
    * @return xmlrpcmsg The new XML-RPC message.
    */
-  private function _getXmlrpcMsg($method, $args = array()) {
+  private function _getXmlRpcMsg($method, $args = array()) {
     foreach ($args as &$argument) {
       if (is_array($argument)) {
         foreach ($argument as &$a) {
